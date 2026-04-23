@@ -1,0 +1,694 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== NEPALI HIMALAYAN THEME VARIABLES ===== */
+:root {
+  --crimson: #C41E3A;
+  --crimson-dark: #8B0000;
+  --crimson-light: #E63950;
+  --royal-blue: #003087;
+  --gold: #D4AF37;
+  --gold-light: #F0D060;
+  --gold-dim: rgba(212, 175, 55, 0.25);
+  --bg-deep: #06060F;
+  --bg-dark: #0B0B1F;
+  --bg-card: rgba(15, 15, 40, 0.9);
+  --bg-card-solid: #0F0F28;
+  --text-primary: #F0EAD6;
+  --text-secondary: #B8B0CC;
+  --text-muted: #706880;
+  --border-gold: rgba(212, 175, 55, 0.3);
+  --border-crimson: rgba(196, 30, 58, 0.3);
+  --glow-crimson: 0 0 40px rgba(196, 30, 58, 0.35);
+  --glow-gold: 0 0 30px rgba(212, 175, 55, 0.25);
+  --transition-smooth: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ===== GLOBAL RESET & BASE ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--crimson);
+  color: var(--gold-light);
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--crimson), var(--gold));
+  border-radius: 3px;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  line-height: 1.15;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel Decorative', serif;
+}
+
+/* ===== ANIMATED STARFIELD ===== */
+.stars-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.stars-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.stars-layer::before,
+.stars-layer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.stars-s::before {
+  background-image:
+    radial-gradient(1px 1px at 10% 15%, rgba(240,234,214,0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 25% 45%, rgba(240,234,214,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 40% 8%, rgba(240,234,214,0.85) 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 62%, rgba(240,234,214,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 70% 30%, rgba(240,234,214,0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 85% 75%, rgba(240,234,214,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 92% 18%, rgba(240,234,214,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 5% 85%, rgba(240,234,214,0.75) 0%, transparent 100%),
+    radial-gradient(1px 1px at 33% 92%, rgba(240,234,214,0.65) 0%, transparent 100%),
+    radial-gradient(1px 1px at 67% 52%, rgba(240,234,214,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 78% 88%, rgba(240,234,214,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 18% 38%, rgba(240,234,214,0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 48% 73%, rgba(212,175,55,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 88% 48%, rgba(240,234,214,0.75) 0%, transparent 100%),
+    radial-gradient(1px 1px at 62% 22%, rgba(240,234,214,0.85) 0%, transparent 100%),
+    radial-gradient(1px 1px at 3% 55%, rgba(240,234,214,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 95% 95%, rgba(240,234,214,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 37% 28%, rgba(212,175,55,0.5) 0%, transparent 100%);
+  animation: twinkle-s 4s ease-in-out infinite alternate;
+}
+
+.stars-m::before {
+  background-image:
+    radial-gradient(1.5px 1.5px at 15% 25%, rgba(212,175,55,0.8) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 42% 18%, rgba(240,234,214,0.9) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 68% 42%, rgba(240,234,214,0.8) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 88% 12%, rgba(212,175,55,0.7) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 8% 70%, rgba(240,234,214,0.85) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 55% 88%, rgba(240,234,214,0.7) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 30% 60%, rgba(212,175,55,0.6) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 75% 65%, rgba(240,234,214,0.8) 0%, transparent 100%);
+  animation: twinkle-m 5.5s ease-in-out infinite alternate-reverse;
+}
+
+.stars-l::before {
+  background-image:
+    radial-gradient(2px 2px at 22% 35%, rgba(212,175,55,0.9) 0%, transparent 100%),
+    radial-gradient(2px 2px at 78% 22%, rgba(240,234,214,0.95) 0%, transparent 100%),
+    radial-gradient(2px 2px at 45% 55%, rgba(212,175,55,0.8) 0%, transparent 100%),
+    radial-gradient(2px 2px at 90% 80%, rgba(240,234,214,0.9) 0%, transparent 100%),
+    radial-gradient(2px 2px at 12% 90%, rgba(212,175,55,0.7) 0%, transparent 100%);
+  animation: twinkle-l 7s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle-s {
+  0% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+  100% { opacity: 0.5; }
+}
+@keyframes twinkle-m {
+  0% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+@keyframes twinkle-l {
+  0% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* ===== 3D CARD TILT ===== */
+.card-3d {
+  transition: box-shadow 0.4s var(--transition-smooth);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.card-3d-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+}
+
+/* ===== GLASS MORPHISM ===== */
+.glass {
+  background: rgba(15, 15, 40, 0.6);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-gold);
+}
+
+.glass-crimson {
+  background: rgba(139, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-crimson);
+}
+
+/* ===== GRADIENT TEXT ===== */
+.gradient-text {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 40%, var(--crimson-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(to right, var(--gold-light), var(--gold), #b8860b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== SECTION HEADINGS ===== */
+.section-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(to right, var(--crimson), var(--gold), transparent);
+  border-radius: 2px;
+}
+
+/* ===== MANDALA DECORATION ===== */
+.mandala-ring {
+  border-radius: 50%;
+  border: 1px solid var(--border-gold);
+  position: absolute;
+  animation: rotate-slow linear infinite;
+}
+
+.mandala-ring::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: var(--glow-gold);
+}
+
+@keyframes rotate-slow {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotate-reverse {
+  to { transform: rotate(-360deg); }
+}
+
+/* ===== MOUNTAIN SILHOUETTE ===== */
+.mountain-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+/* ===== ORNAMENTAL BORDER ===== */
+.ornament-border {
+  position: relative;
+}
+
+.ornament-border::before,
+.ornament-border::after {
+  content: '◆';
+  color: var(--gold);
+  opacity: 0.6;
+  margin: 0 12px;
+}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+}
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===== BUTTONS ===== */
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 36px;
+  background: linear-gradient(135deg, var(--crimson-dark), var(--crimson));
+  color: var(--text-primary);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(196, 30, 58, 0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(196, 30, 58, 0.6), var(--glow-gold);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 34px;
+  background: transparent;
+  color: var(--gold);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: 1px solid var(--gold);
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(212, 175, 55, 0.1);
+  box-shadow: var(--glow-gold), inset 0 0 20px rgba(212,175,55,0.05);
+  transform: translateY(-2px);
+}
+
+/* ===== TECH BADGE ===== */
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid var(--border-gold);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+  background: rgba(212, 175, 55, 0.15);
+  box-shadow: var(--glow-gold);
+  transform: translateY(-2px);
+}
+
+/* ===== GOLD DIVIDER ===== */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), var(--crimson), var(--gold), transparent);
+  margin: 0;
+  opacity: 0.4;
+}
+
+/* ===== SKILL BAR ===== */
+.skill-bar-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(to right, var(--crimson), var(--gold));
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 1.2s var(--transition-smooth);
+}
+
+.skill-bar-fill.animate {
+  transform: scaleX(1);
+}
+
+/* ===== TIMELINE ===== */
+.timeline-item {
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 12px rgba(212,175,55,0.6);
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 22px;
+  width: 2px;
+  height: calc(100% + 20px);
+  background: linear-gradient(to bottom, var(--gold-dim), transparent);
+}
+
+.timeline-item:last-child::after {
+  display: none;
+}
+
+/* ===== NAV LINK ===== */
+.nav-link {
+  position: relative;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 4px 0;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--crimson), var(--gold));
+  transition: width 0.35s var(--transition-smooth);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--gold);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* ===== FLOATING ANIMATION ===== */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-15px) rotate(1deg); }
+  66% { transform: translateY(-8px) rotate(-1deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(212,175,55,0.2); }
+  50% { box-shadow: 0 0 40px rgba(212,175,55,0.5); }
+}
+
+@keyframes pulse-crimson {
+  0%, 100% { box-shadow: 0 0 20px rgba(196,30,58,0.2); }
+  50% { box-shadow: 0 0 40px rgba(196,30,58,0.5); }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ===== PAGE CONTAINER ===== */
+.page-container {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== SECTION ===== */
+.section {
+  padding: 100px 0;
+  position: relative;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .section {
+    padding: 70px 0;
+  }
+  .btn-primary, .btn-secondary {
+    padding: 12px 24px;
+    font-size: 0.85rem;
+  }
+}
+
+/* ===== HERO GRADIENT BG ===== */
+.hero-gradient {
+  background: 
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139,0,0,0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(0,48,135,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(212,175,55,0.06) 0%, transparent 60%),
+    linear-gradient(180deg, #06060F 0%, #08081A 50%, #0B0B1F 100%);
+}
+
+/* ===== NOISE TEXTURE ===== */
+.noise::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+/* ===== CONTACT FORM ===== */
+.form-input {
+  width: 100%;
+  background: rgba(15, 15, 40, 0.8);
+  border: 1px solid var(--border-gold);
+  border-radius: 4px;
+  padding: 14px 18px;
+  color: var(--text-primary);
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+.form-input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 20px rgba(212,175,55,0.1), inset 0 0 10px rgba(212,175,55,0.03);
+}
+
+textarea.form-input {
+  resize: vertical;
+  min-height: 140px;
+}
+
+/* ===== PROJECT CARD ===== */
+.project-card {
+  position: relative;
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border-gold);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.4s ease;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(212,175,55,0.04) 0%, transparent 50%, rgba(196,30,58,0.04) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.project-card:hover {
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(212,175,55,0.1);
+}
+
+.project-card .card-content {
+  position: relative;
+  z-index: 2;
+  padding: 32px;
+}
+
+.project-emoji {
+  font-size: 3rem;
+  display: block;
+  filter: drop-shadow(0 0 12px rgba(212,175,55,0.4));
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ===== NEPALI PRAYER FLAG COLORS ===== */
+.flag-blue { color: #003087; }
+.flag-white { color: #F8F5F0; }
+.flag-red { color: #C41E3A; }
+.flag-green { color: #2D7A3A; }
+.flag-yellow { color: #D4AF37; }
+
+/* ===== FOOTER ===== */
+.footer-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-link:hover {
+  color: var(--gold);
+}
+
+/* ===== MOBILE MENU ===== */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 75%;
+  max-width: 320px;
+  height: 100vh;
+  background: rgba(6, 6, 20, 0.98);
+  backdrop-filter: blur(30px);
+  border-left: 1px solid var(--border-gold);
+  z-index: 9999;
+  transform: translateX(100%);
+  transition: transform 0.4s var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  padding: 80px 40px 40px;
+  gap: 32px;
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 9998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.mobile-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}

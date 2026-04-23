@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Portfolio in Chrome",
+      "url": "http://localhost:5000",
+      "webRoot": "${workspaceFolder}/client/src",
+      "sourceMaps": true,
+      "userDataDir": false
+    }
+  ]
+}

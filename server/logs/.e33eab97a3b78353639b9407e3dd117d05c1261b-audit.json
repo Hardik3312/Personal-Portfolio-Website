@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\KIIT\\Desktop\\Personal Portfolio Website\\server\\logs\\.e33eab97a3b78353639b9407e3dd117d05c1261b-audit.json",
+    "files": [
+        {
+            "date": 1776631222932,
+            "name": "C:\\Users\\KIIT\\Desktop\\Personal Portfolio Website\\server\\logs\\error-2026-04-20.log",
+            "hash": "36388f9cd1dffc0dc2c6f069a8d792f60eb7d794167ded8290be6e4445d2af68"
+        }
+    ],
+    "hashType": "sha256"
+}
